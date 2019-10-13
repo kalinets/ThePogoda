@@ -1,0 +1,38 @@
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  body,
+  .device .device-content {
+    background-color: #eee;
+    color: #333;
+  }
+}
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body,
+  .device .device-content {
+    background-color: #333;
+    color: #eee;
+  }
+}
+
+.device {
+  margin: auto;
+}
+
+.device-content {
+  overflow: auto;
+}
+
+.today-summary {
+  display: flex;
+  justify-content: space-around;
+}
+
+.forecast-hours {
+  display: flex;
+  overflow: auto;
+}
+
+.forecast-hour {
+  width: calc(100vw / 6.5);
+}
