@@ -1,3 +1,38 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 422px), screen and (max-height: 870px) {
+  .device {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .device .device-frame {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .device .device-content {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .device-stripe,
+  .device-header,
+  .device-sensors,
+  .device-btns,
+  .device-power {
+    display: none;
+  }
+}
+
 /* Light mode */
 @media (prefers-color-scheme: light) {
   body,
@@ -46,4 +81,12 @@
 
 img {
   width: 50px;
+}
+
+.info-block {
+  display: flex;
+}
+
+.info-block > div {
+  width: 50%;
 }
