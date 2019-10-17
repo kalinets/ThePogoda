@@ -33,7 +33,8 @@ export default function App() {
   const getIcon = name => {
     return (
       <img
-        src={`https://darksky.net/images/weather-icons/${name}.png`}
+        // src={`https://darksky.net/images/weather-icons/${name}.png`}
+        src={`icons/${name}.svg`}
         alt={name}
       />
     )
@@ -54,12 +55,13 @@ export default function App() {
       if (!ignore) setWeatherForecast(json)
       setLoading(false)
     }
-    getData()
+    latitude && getData()
     return () => { ignore = true }
   }, [latitude, longitude])
 
   return (
     <Fragment>
+      {!latitude && <p>The app needs your location first.</p>}
       {loading && <p>Loading...</p>}
       {weatherForecast && weatherForecast.latitude && (
         <Fragment>
@@ -91,8 +93,9 @@ export default function App() {
               <div key={day.time} className="forecast-day">
                 <span>{getDay(day.time)}</span>
                 {getIcon(day.icon)}
-                <span>{Math.round(day.temperatureHigh)}&emsp;</span>
+                <span>{Math.round(day.temperatureHigh)}</span>
                 <span>{Math.round(day.temperatureLow)}</span>
+                <span>Moon: {day.moonPhase}</span>
               </div>
             ))}
           </div>
