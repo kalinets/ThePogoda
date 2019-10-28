@@ -8,6 +8,9 @@ export default function App() {
   const [weatherForecast, setWeatherForecast] = useState(null)
   const [loading, setLoading] = useState(false)
 
+  const localData = JSON.parse(localStorage.getItem('localData'))
+  // if (localData) setWeatherForecast(localData)
+
   const getDay = dt => {
     const date = new Date(dt * 1000)
     return formatDay(date.getDay())
@@ -30,15 +33,7 @@ export default function App() {
     return weekdays[num]
   }
 
-  const getIcon = name => {
-    return (
-      <img
-        // src={`https://darksky.net/images/weather-icons/${name}.png`}
-        src={`icons/${name}.svg`}
-        alt={name}
-      />
-    )
-  }
+  const getIcon = name => <img src={`icons/${name}.svg`} alt={name} />
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(res => {
@@ -52,7 +47,10 @@ export default function App() {
       setLoading(true)
       const res = await fetch(api.getForecast(latitude, longitude))
       const json = await res.json()
-      if (!ignore) setWeatherForecast(json)
+      if (!ignore) {
+        setWeatherForecast(json)
+        localStorage.setItem('localData', JSON.stringify(json))
+      }
       setLoading(false)
     }
     latitude && getData()
@@ -68,7 +66,7 @@ export default function App() {
           <h2>{weatherForecast.timezone}</h2>
           <p>{weatherForecast.currently.summary}</p>
           <p>{Math.round(weatherForecast.currently.temperature)}&deg;</p>
-          {getIcon(weatherForecast.currently.icon)}
+          {/* {getIcon(weatherForecast.currently.icon)} */}
           <div className="today-summary">
             <div>{getDay(weatherForecast.currently.time)} Today</div>
             <div>
@@ -82,7 +80,7 @@ export default function App() {
             {weatherForecast.hourly.data.map(hour => (
               <div key={hour.time} className="forecast-hour">
                 <p>{getHour(hour.time)}:{getMinutes(hour.time)}</p>
-                {getIcon(hour.icon)}
+                {/* {getIcon(hour.icon)} */}
                 <p>{Math.round(hour.temperature)}&deg;</p>
               </div>
             ))}
@@ -92,7 +90,7 @@ export default function App() {
             {weatherForecast.daily.data.map(day => (
               <div key={day.time} className="forecast-day">
                 <span>{getDay(day.time)}</span>
-                {getIcon(day.icon)}
+                {/* {getIcon(day.icon)} */}
                 <span>{Math.round(day.temperatureHigh)}</span>
                 <span>{Math.round(day.temperatureLow)}</span>
                 <span>Moon: {day.moonPhase}</span>

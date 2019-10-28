@@ -7,8 +7,7 @@ body {
 }
 
 @media screen and (max-width: 422px), screen and (max-height: 870px) {
-  .device {
-    width: 100%;
+  /* .device {
     height: 100%;
     overflow: hidden;
   }
@@ -30,6 +29,9 @@ body {
   .device-btns,
   .device-power {
     display: none;
+  } */
+  .device.device-iphone-8 {
+    top: -102px;
   }
 }
 
