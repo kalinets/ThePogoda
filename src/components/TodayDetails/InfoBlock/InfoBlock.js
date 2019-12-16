@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import './InfoBlock.scss'
 
 export default function InfoBlock(props) {
@@ -11,7 +12,7 @@ export default function InfoBlock(props) {
   } = props
 
   return (
-    <div className="info-block">
+    <div className='info-block'>
       <div>
         <p>{leftName}</p>
         <p>{leftData}</p>

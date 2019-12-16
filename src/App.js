@@ -5,6 +5,7 @@ import ForecastHours from './components/ForecastHours'
 import ForecastDays from './components/ForecastDays'
 import TodayDetails from './components/TodayDetails'
 import { api } from './constants'
+
 import './styles.css'
 // https://webdesign.tutsplus.com/tutorials/building-a-weather-app-with-the-darksky-api--cms-28678
 
@@ -67,7 +68,9 @@ export default function App() {
       {weatherForecast && weatherForecast.latitude && (
         <>
           <div className='weather-now'>
-            <h2>{weatherForecast.timezone}</h2>
+            <h1>
+              {weatherForecast.timezone.slice(weatherForecast.timezone.indexOf('/') + 1, 50)}
+            </h1>
             <p>{weatherForecast.currently.summary}</p>
             <p>{Math.round(weatherForecast.currently.temperature)}&deg;</p>
             {getIcon(weatherForecast.currently.icon)}
@@ -104,7 +107,10 @@ export default function App() {
           />
         </>
       )}
-      <a href='https://darksky.net/poweredby/'>Powered by Dark Sky</a>
+      <a
+        className='copyright'
+        href='https://darksky.net/poweredby/'>Powered by Dark Sky
+      </a>
     </>
   )
 }
