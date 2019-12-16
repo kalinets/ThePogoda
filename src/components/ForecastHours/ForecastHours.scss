@@ -1,9 +1,11 @@
 .forecast-hours {
   display: flex;
+  padding: 0 10px;
   overflow: auto;
 }
 
 .forecast-hour {
   width: auto;
   margin: 0 5px;
+  text-align: center;
 }

@@ -91,7 +91,9 @@ export default function App() {
             forecastDaysData={weatherForecast.daily.data}
           />
           <hr />
-          <p>Today: {weatherForecast.hourly.summary} {weatherForecast.daily.summary}</p>
+          <p className='forecast-today'>
+            Today: {weatherForecast.hourly.summary} {weatherForecast.daily.summary}
+          </p>
           <hr />
           <TodayDetails
             getHour={getHour}
