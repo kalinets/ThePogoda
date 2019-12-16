@@ -12,9 +12,9 @@ export default function TodaySummary(props) {
         <span>Today</span>
       </div>
       <div>
-        {Math.round(currentDayHigh)}
+        {Math.round(currentDayHigh)}&deg;
         &emsp;
-        {Math.round(currentDayLow)}
+        {Math.round(currentDayLow)}&deg;
       </div>
     </div>
   )

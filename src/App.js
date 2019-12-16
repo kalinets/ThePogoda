@@ -11,7 +11,9 @@ import './styles.css'
 
 export default function App() {
   const localData = localStorage.getItem('localData')
-  const [[latitude, longitude], setCoords] = useState([])
+  const [[latitude, longitude], setCoords] = useState(
+    [JSON.parse(localData).latitude, JSON.parse(localData).longitude]
+  )
   const [weatherForecast, setWeatherForecast] = useState(JSON.parse(localData))
   const [loading, setLoading] = useState(false)
 
@@ -69,7 +71,11 @@ export default function App() {
         <>
           <div className='weather-now'>
             <h1>
-              {weatherForecast.timezone.slice(weatherForecast.timezone.indexOf('/') + 1, 50)}
+              {
+                weatherForecast.timezone
+                  .slice(weatherForecast.timezone.indexOf('/') + 1, 50)
+                  .replace('_', ' ')
+              }
             </h1>
             <p>{weatherForecast.currently.summary}</p>
             <p>{Math.round(weatherForecast.currently.temperature)}&deg;</p>
