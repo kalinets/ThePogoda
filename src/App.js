@@ -11,9 +11,10 @@ import './styles.css'
 
 export default function App() {
   const localData = localStorage.getItem('localData')
-  const [[latitude, longitude], setCoords] = useState(
-    [JSON.parse(localData).latitude, JSON.parse(localData).longitude]
-  )
+  const [[latitude, longitude], setCoords] = useState([
+    JSON.parse(localData) && JSON.parse(localData).latitude,
+    JSON.parse(localData) && JSON.parse(localData).longitude
+  ])
   const [weatherForecast, setWeatherForecast] = useState(JSON.parse(localData))
   const [loading, setLoading] = useState(false)
 
