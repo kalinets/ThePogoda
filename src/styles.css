@@ -71,3 +71,7 @@ body {
 img {
   width: 50px;
 }
+
+.weather-now {
+  padding: 0 10px;
+}

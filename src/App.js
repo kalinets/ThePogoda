@@ -32,7 +32,7 @@ export default function App() {
   const formatTime = num => num < 10 ? `0${num}` : num
 
   const formatDay = num => {
-    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     return weekdays[num]
   }
 
@@ -66,10 +66,12 @@ export default function App() {
       {loading && <Loader />}
       {weatherForecast && weatherForecast.latitude && (
         <>
-          <h2>{weatherForecast.timezone}</h2>
-          <p>{weatherForecast.currently.summary}</p>
-          <p>{Math.round(weatherForecast.currently.temperature)}&deg;</p>
-          {getIcon(weatherForecast.currently.icon)}
+          <div className='weather-now'>
+            <h2>{weatherForecast.timezone}</h2>
+            <p>{weatherForecast.currently.summary}</p>
+            <p>{Math.round(weatherForecast.currently.temperature)}&deg;</p>
+            {getIcon(weatherForecast.currently.icon)}
+          </div>
           <TodaySummary
             currentDay={getDay(weatherForecast.currently.time)}
             currentDayHigh={weatherForecast.daily.data[0].temperatureHigh}
@@ -100,7 +102,7 @@ export default function App() {
           />
         </>
       )}
-      <a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+      <a href='https://darksky.net/poweredby/'>Powered by Dark Sky</a>
     </>
   )
 }

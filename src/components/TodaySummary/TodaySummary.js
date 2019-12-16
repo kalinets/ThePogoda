@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import './TodaySummary.scss'
+
 export default function TodaySummary(props) {
   const { currentDay, currentDayHigh, currentDayLow } = props
   return (
