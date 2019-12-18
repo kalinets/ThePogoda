@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" baseProfile="tiny" version="1.2" viewBox="0 0 128 128">
-  <g fill="#FFF100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <g fill="#ffe500">
     <circle cx="64" cy="64" r="25.68"/>
     <path d="M60.58 32.75l-14.95-13.1-1.31 19.83zM83.68 88.52l-1.31 19.83-14.95-13.1zM83.68 39.48l-1.31-19.83-14.95 13.1zM60.58 95.25l-14.95 13.1-1.31-19.83z"/>
     <g>

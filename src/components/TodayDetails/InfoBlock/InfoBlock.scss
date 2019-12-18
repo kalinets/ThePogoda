@@ -1,8 +1,10 @@
 .info-block {
   display: flex;
-  padding: 0 10px;
-}
-
-.info-block > div {
-  width: 50%;
+  padding: 0 .5em;
+  > div {
+    width: 50%;
+  }
+  p:first-child {
+    margin-bottom: .5em;
+  }
 }

@@ -1,11 +1,11 @@
 .today-summary {
-  padding: 0 10px;
+  padding: 0 .5em;
   display: flex;
   justify-content: space-between;
   &__weekday {
     span {
       display: inline-block;
-      margin-left: 10px;
+      margin-left: .5em;
       font-size: 0.9em;
     }
   }
